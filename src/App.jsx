@@ -35,12 +35,11 @@ export const App = () => (
     </div>
 
     <ul>
-      <li data-cy="Good">Dumplings</li>
-      <li data-cy="Good">Carrot</li>
-      <li data-cy="Good">Eggs</li>
-      <li data-cy="Good">Ice cream</li>
-      <li data-cy="Good">Apple</li>
-      <li data-cy="Good">...</li>
+      {goodsFromServer.map(good => (
+        <li key={good} data-cy="Good">
+          {good}
+        </li>
+      ))}
     </ul>
   </div>
 );
