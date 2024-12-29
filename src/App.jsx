@@ -32,10 +32,9 @@ export const App = () => {
   if (sortField) {
     switch (sortField) {
       case SORT_ALPHABETICALLY:
+        visibleGoods = visibleGoods.toSorted();
         if (reversed) {
-          visibleGoods = visibleGoods.toSorted().toReversed();
-        } else {
-          visibleGoods = visibleGoods.toSorted();
+          visibleGoods = visibleGoods.toReversed();
         }
 
         break;
@@ -85,18 +84,20 @@ export const App = () => {
           Reverse
         </button>
 
-        {sortField || reversed ? (
-          <button
-            type="button"
-            className="button is-danger is-light"
-            onClick={() => {
-              setSortField('');
-              setReversed(false);
-            }}
-          >
-            Reset
-          </button>
-        ) : null}
+        {sortField || reversed
+          ? (
+            <button
+              type="button"
+              className="button is-danger is-light"
+              onClick={() => {
+                setSortField('');
+                setReversed(false);
+              }}
+            >
+              Reset
+            </button>
+          )
+          : null}
       </div>
 
       <ul>
